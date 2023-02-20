@@ -8952,7 +8952,6 @@
                     }
                 }
                 setInterval(draw, 80);
-                window.addEventListener("resize", (() => location.reload()));
             }
             if (document.querySelector(".column-main__balance-numbers")) {
                 const balance = document.querySelector(".column-main__balance-numbers");
