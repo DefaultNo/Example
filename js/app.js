@@ -8940,7 +8940,7 @@
                 for (let i = 0; i < col; i++) arr[i] = 1;
                 function draw() {
                     var color = [ "#307FDB" ];
-                    $.fillStyle = "rgba(16,21,30,.2)";
+                    $.fillStyle = "rgba(10,11,15,.2)";
                     $.fillRect(0, 0, W, H);
                     $.fillStyle = color[Math.floor(Math.random() * color.length)];
                     $.font = font + "px system-ui";
