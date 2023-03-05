@@ -2407,6 +2407,195 @@ body::after {
   max-width: 100%;
 }
 
+.registration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  position: relative;
+  z-index: 2;
+  padding: 150px 0;
+  min-height: 100vh;
+}
+
+.registration__canvas {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.registration__container {
+  width: 100%;
+}
+
+.fields-form {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.fields-form__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+  margin-bottom: 45px;
+}
+
+.fields-form__label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.fields-form__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 56px;
+  width: 100%;
+  background: rgba(22, 29, 41, 0.5);
+  border: 1px solid #161D29;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.fields-form__field._form-focus {
+  border: 1px solid #307FDB;
+}
+
+.fields-form__input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 5px 20px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.fields-form__input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #606D84;
+}
+
+.fields-form__input::-moz-placeholder {
+  font-size: 16px;
+  color: #606D84;
+}
+
+.fields-form__input:-ms-input-placeholder {
+  font-size: 16px;
+  color: #606D84;
+}
+
+.fields-form__input::-ms-input-placeholder {
+  font-size: 16px;
+  color: #606D84;
+}
+
+.fields-form__input::placeholder {
+  font-size: 16px;
+  color: #606D84;
+}
+
+.fields-form__view-pass {
+  margin-right: 20px;
+  width: 20px;
+  height: 14px;
+}
+
+.fields-form__view-pass svg {
+  pointer-events: none;
+  width: 100%;
+}
+
+.fields-form__view-pass svg path {
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.fields-form__view-pass._viewpass-active path {
+  stroke: #fff;
+}
+
+.fields-form__send {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.fields-form__send span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #307FDB;
+  padding: 5px;
+  min-height: 70px;
+  max-width: 300px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #121616;
+}
+
+.fields-form__info {
+  font-size: 16px;
+  text-align: center;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 150px 0;
+  min-height: 100vh;
+}
+
+.login__canvas {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login__container {
+  width: 100%;
+}
+
 .footer-account {
   position: relative;
   z-index: 2;
@@ -3463,6 +3652,36 @@ body::after {
     font-size: 24px;
   }
 
+  .registration {
+    padding: 75px 0;
+  }
+
+  .fields-form__items {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .fields-form__field {
+    height: 50px;
+  }
+
+  .fields-form__send {
+    margin-bottom: 15px;
+  }
+
+  .fields-form__send span {
+    min-height: 50px;
+    max-width: 250px;
+  }
+
+  .fields-form__info {
+    font-size: 14px;
+  }
+
+  .login {
+    padding: 75px 0;
+  }
+
   .footer-account__button {
     padding: 15px 10px;
   }
@@ -3635,6 +3854,10 @@ body::after {
 
   .bottom-referral-link__numbers {
     font-size: 32px;
+  }
+
+  .fields-form__input {
+    padding: 5px 15px;
   }
 
   .licence-popup {

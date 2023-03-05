@@ -8534,6 +8534,44 @@
             }
         }
         module_techModule.popup = new Popup({});
+        function formFieldsInit(options = {
+            viewPass: false
+        }) {
+            const formFields = document.querySelectorAll("input[placeholder],textarea[placeholder]");
+            if (formFields.length) formFields.forEach((formField => {
+                if (!formField.hasAttribute("data-placeholder-nohide")) formField.dataset.placeholder = formField.placeholder;
+            }));
+            document.body.addEventListener("focusin", (function(e) {
+                const targetElement = e.target;
+                if ("INPUT" === targetElement.tagName || "TEXTAREA" === targetElement.tagName) {
+                    if (targetElement.dataset.placeholder) targetElement.placeholder = "";
+                    if (!targetElement.hasAttribute("data-no-focus-classes")) {
+                        targetElement.classList.add("_form-focus");
+                        targetElement.parentElement.classList.add("_form-focus");
+                    }
+                    formValidate.removeError(targetElement);
+                }
+            }));
+            document.body.addEventListener("focusout", (function(e) {
+                const targetElement = e.target;
+                if ("INPUT" === targetElement.tagName || "TEXTAREA" === targetElement.tagName) {
+                    if (targetElement.dataset.placeholder) targetElement.placeholder = targetElement.dataset.placeholder;
+                    if (!targetElement.hasAttribute("data-no-focus-classes")) {
+                        targetElement.classList.remove("_form-focus");
+                        targetElement.parentElement.classList.remove("_form-focus");
+                    }
+                    if (targetElement.hasAttribute("data-validate")) formValidate.validateInput(targetElement);
+                }
+            }));
+            if (options.viewPass) document.addEventListener("click", (function(e) {
+                let targetElement = e.target;
+                if (targetElement.closest('[class*="__viewpass"]')) {
+                    let inputType = targetElement.classList.contains("_viewpass-active") ? "password" : "text";
+                    targetElement.parentElement.querySelector("input").setAttribute("type", inputType);
+                    targetElement.classList.toggle("_viewpass-active");
+                }
+            }));
+        }
         let formValidate = {
             getErrors(form) {
                 let error = 0;
@@ -8940,7 +8978,7 @@
                 for (let i = 0; i < col; i++) arr[i] = 1;
                 function draw() {
                     var color = [ "#307FDB" ];
-                    $.fillStyle = "rgba(10,11,15,.2)";
+                    if (document.querySelector(".registration") || document.querySelector(".login")) $.fillStyle = "rgba(16,21,30,.3)"; else $.fillStyle = "rgba(10,11,15,.2)";
                     $.fillRect(0, 0, W, H);
                     $.fillStyle = color[Math.floor(Math.random() * color.length)];
                     $.font = font + "px system-ui";
@@ -8995,5 +9033,8 @@
                 loadLocalColor();
             }
         }));
+        formFieldsInit({
+            viewPass: true
+        });
     })();
 })();
